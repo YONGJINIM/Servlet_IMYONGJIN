@@ -26,7 +26,6 @@ public class GetMethodQuiz08 extends HttpServlet{
 		
 		String keyword = request.getParameter("keyword");
 		
-		// 리스트 
 		List<String> list = new ArrayList<>(Arrays.asList(
 		        "강남역 최고 맛집 소개 합니다.", 
 		        "오늘 기분 좋은 일이 있었네요.", 
@@ -39,9 +38,15 @@ public class GetMethodQuiz08 extends HttpServlet{
 		// 리스트 순회 
 		for (int i =0; i < list.size(); i++) { // 0 ~ 4 인덱스 
 			String text = list.get(i);
-			if (text.contains("맛집")) {
+			if (text.contains(keyword)) {
+				// 맛집 -> <b>맛집</b>
+				// 1) 첫번째 방식
+			    // text = text.replace(keyword, "<b>"+ keyword + "</b>");
+				
+				// 2) 두번째 방식
+				 String[] words = text.split(keyword); // 0, 1 인덱스만 존재 
+			     out.print(words[0] +"<b>"+ keyword + "</b>" + words[1] + "<br>");
 			}
-			out.print(text + "<br>");
 		}
 		out.print("</body></html>");
 		

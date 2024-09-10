@@ -15,8 +15,7 @@ public class GetMethodEx03 extends HttpServlet{
 	public void doGet(HttpServletRequest request , HttpServletResponse response) throws IOException {
 		
 		// 헤더 응답세팅 추가!
-		
-		// 인코딩
+		// 테스트 주석
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/json");
 		
