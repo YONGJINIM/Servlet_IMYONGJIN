@@ -20,7 +20,7 @@
 			return sum;
 		}
 	%>
-	1부터 50까지의 합은 <%= totalSum(50) %> 입니다.
+	<h2>1부터 50까지의 합은 <%= totalSum(50) %> 입니다.</h2>
 	
 	<br>
 
@@ -35,19 +35,19 @@
 	avg = (double)sum/scores.length;
 	%>
 	
-	평균 점수는 <%= avg %> 입니다.
+	<h2>평균 점수는 <%= avg %> 입니다.</h2>
 	<br>
 
 	<%
 	int Sum =0;
 	List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
 		for(String Scores : scoreList){
-			if(Scores == "O") {
-				Sum +=10;
+			if(Scores.equals("O")) {
+				Sum +=100 / scoreList.size();
 			} 
 		}
 	%>
-	채점 결과는 <%= Sum %> 점 입니다.
+	<h2>채점 결과는 <%= Sum %> 점 입니다.</h2>
 	<br>
 	
 	<%
@@ -56,6 +56,6 @@
 	int year = Integer.parseInt(birth); 
 	int age = 2024 - year;
 	%>
-	20010820의 나이는 <%= age %> 입니다.
+	<h2>20010820의 나이는 <%= age %> 입니다.</h2>
 </body>
 </html>
