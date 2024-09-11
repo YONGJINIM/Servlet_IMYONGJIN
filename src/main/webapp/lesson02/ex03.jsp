@@ -20,6 +20,5 @@
 		<label>파인애플피자<input type="checkbox" name="food" value="pizza"></label>
 		<label>번데기<input type="checkbox" name="food" value="bun"></label>
 	</form>
-
 </body>
 </html>
