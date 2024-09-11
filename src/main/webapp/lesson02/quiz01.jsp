@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,19 +20,42 @@
 			return sum;
 		}
 	%>
-	<%= totalSum(10) %>
+	1부터 50까지의 합은 <%= totalSum(50) %> 입니다.
+	
+	<br>
 
 	<%
 	int[] scores = {81, 90, 100, 95, 80};
 
 	int sum = 0; 
 	double avg = 0;
-	for (int i=0 ; i <= scores.length; i++) {
+	for (int i=0 ; i < scores.length; i++) {
 		sum += scores[i];
 	}
-	avg = sum/scores.length;
+	avg = (double)sum/scores.length;
 	%>
-	<%= avg %>
+	
+	평균 점수는 <%= avg %> 입니다.
+	<br>
 
+	<%
+	int Sum =0;
+	List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
+		for(String Scores : scoreList){
+			if(Scores == "O") {
+				Sum +=10;
+			} 
+		}
+	%>
+	채점 결과는 <%= Sum %> 점 입니다.
+	<br>
+	
+	<%
+	String birthDay = "20010820";
+	String birth = birthDay.substring(0,4);
+	int year = Integer.parseInt(birth); 
+	int age = 2024 - year;
+	%>
+	20010820의 나이는 <%= age %> 입니다.
 </body>
 </html>
