@@ -18,7 +18,16 @@
 		4. 다음중 선호하는 것을 모두 고르세요 
 		<label>민트초코<input type="checkbox" name="food" value="mincho"></label>
 		<label>파인애플피자<input type="checkbox" name="food" value="pizza"></label>
-		<label>번데기<input type="checkbox" name="food" value="bun"></label>
+		<label>번데기<input type="checkbox" name="food" value="pupa"></label>
+		5. 좋아하는 과일을 선택하세요. <br>
+		<select name="fruit">
+			<option>사과</option>
+			<option>복숭아</option>
+			<option>파인애플</option>
+			<option>체리</option>
+			<option>수박</option>
+		</select><br><br>
+		<input type="submit" value="제출">
 	</form>
 </body>
 </html>
