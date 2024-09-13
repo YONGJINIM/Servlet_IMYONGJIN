@@ -21,7 +21,7 @@
 	
 	<table border="1">
 		<tr>
-			<th>이름</th>
+			<th>별명</th>
 			<td><%=nickname %></td>
 		</tr>
 		
@@ -38,17 +38,15 @@
 			<th>좋아하는 음식</th>
 			<td>
 				<% 
-						
-				
-				if(foodArr != null) {
+				if(foodArr != null) { // foodArr이 null이 아닐 때 아래 for문 실행
 					String result = "";
-					for (int i =0; i < foodArr.length ; i++) {
-						result += foodArr[i] + ",";
+					for (int i =0; i < foodArr.length; i++) { // foodArr for문으로 순회
+						result += foodArr[i] + ","; // result 변수에 저장 -> "사과, " ... 
 					}
 					// 맨 뒤에 붙은 콤마 제거
 					// 문자열 추출 substring(0, 2) 사용
-					result = result.substring(0, result.length() - 1);
-					out.print(result);
+					result = result.substring(0, result.length() - 1); // 0부터 result 길이의 -1 까지
+					out.print(result); // out.print로 결과 출력
 				}
 				%>
 			</td>

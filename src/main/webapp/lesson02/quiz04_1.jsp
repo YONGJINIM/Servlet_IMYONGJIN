@@ -15,6 +15,8 @@
 		// 값 가져오기
 		int length = Integer.valueOf(request.getParameter("length"));
 		String[] types = request.getParameterValues("types");
+		double result = 0; // 결과를 저장할 변수 선언
+		String unit = "";  // 단위를 저장할 변수 선언
 	%>
 
 	<div class="container">
@@ -22,34 +24,28 @@
 		<div class="display-4"><%=length + " cm"%></div>
 		<hr>
 		<h2>
-			<%
-			if(types != null) {
-				for (int i= 0; i < types.length; i++) {
+		<%
+			if (types != null) {
+				for (int i = 0; i < types.length; i++) {
 					if (types[i].equals("inch")) {
-						double inch = length * 0.393701;
-						out.print((inch + "in<br>"));
+						result = length * 0.393701;  // 결과 저장
+						unit = "in";  // 단위 저장
 					} else if (types[i].equals("yard")) {
-						double yard = length * 0.0109361;
-						out.print((yard + "yd<br>"));
+						result = length * 0.0109361;
+						unit = "yd";
 					} else if (types[i].equals("feet")) {
-						double feet = length * 0.0328084;
-						out.print((feet + "yd<br>"));
+						result = length * 0.0328084;
+						unit = "feet";
 					} else if (types[i].equals("meter")) {
-						double meter = length / 100.0;
-						out.print((meter + "m"));
+						result = length / 100.0;
+						unit = "m";
 					}
-					
+
+					// 변환 결과 출력
+					out.print(result + " " + unit + "<br>");
 				}
-				}
-			
-			
-			
-			%>
-		
-		
-		
-		
-		
+			}
+		%>
 		</h2>
 	</div>
 </body>
