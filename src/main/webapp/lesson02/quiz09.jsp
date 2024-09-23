@@ -103,7 +103,7 @@ footer {height:200px;}
 		<header class="d-flex align-items-center">
 			<%-- 로고 영역 --%>
 			<div class="col-2">
-				<h3><a href="/lesson02/quiz09.jsp" class="text-success">Melong</a></h3>
+				<h3><a href="/lesson02/quiz10.jsp" class="text-success">Melong</a></h3>
 			</div>
 			
 			<%-- 검색 영역 --%>
@@ -115,7 +115,7 @@ footer {height:200px;}
 							<button class="btn btn-info" type="submit">검색</button>
 						</div>
 					</div>
-				</form>	
+				</form>
 			</div>
 		</header>
 		<nav>
@@ -149,7 +149,7 @@ footer {height:200px;}
 				<table class="table text-center">
 					<thead>
 						<tr>
-							<th>No.</th>
+							<th>No</th>
 							<th>제목</th>
 							<th>앨범</th>
 						</tr>

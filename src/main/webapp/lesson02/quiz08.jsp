@@ -58,52 +58,57 @@ list.add(map);
 map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
 list.add(map);
 %>
-	<div id="wrap" class="container">
-		<header class="d-flex justify-content-center align-items-center">
-			<h2 class="text-danger">SK Broadband IPTV</h2>
-		</header>
-		<nav class="bg-danger d-flex align-items-center">
-			<ul class="nav nav-fill w-100">
-				<li class="nav-item"><a href="/lesson02/quiz08.jsp" class="nav-link text-white">전체</a></li>
-				<li class="nav-item"><a href="/lesson02/quiz08.jsp?category=지상파" class="nav-link text-white">지상파</a></li>
-				<li class="nav-item"><a href="/lesson02/quiz08.jsp?category=드라마" class="nav-link text-white">드라마</a></li>
-				<li class="nav-item"><a href="/lesson02/quiz08.jsp?category=예능" class="nav-link text-white">예능</a></li>
-				<li class="nav-item"><a href="/lesson02/quiz08.jsp?category=영화" class="nav-link text-white">영화</a></li>
-				<li class="nav-item"><a href="/lesson02/quiz08.jsp?category=스포츠" class="nav-link text-white">스포츠</a></li>
-			</ul>
-		</nav>
-		<section class="contents">
-			<table class="table text-center">
-				<thead>
-					<tr>
-						<th>채널</th>
-						<th>채널명</th>
-						<th>카테고리</th>
-					</tr>
-				</thead>
-				<tbody>
-				<%
-					String category = request.getParameter("category");
-				
-					for (Map<String, String> item : list) {
-						// 전체(category가 null) 또는 category(req param)가 맵(카테고리와)과 같을 때
-						if (category == null || category.equals(item.get("category"))) {
-				%>
-					<tr>
-						<td><%= item.get("ch") %></td>
-						<td><%= item.get("name") %></td>
-						<td><%= item.get("category") %></td>
-					</tr>
-				<%
-						}
-					}
-				%>
-				</tbody>
-			</table>
-		</section>
-		<footer class="d-flex justify-content-center align-items-center">
-			<small>Copyright © SK Broadband IPTV 2024</small>
-		</footer>
-	</div>
-</body>
+	<div id="wrap" class="container"> <!-- 콘텐츠를 감싸는 컨테이너 -->
+    <header class="d-flex justify-content-center align-items-center">
+        <h2 class="text-danger">SK Broadband IPTV</h2> <!-- 헤더 영역, 타이틀 -->
+    </header>
+
+    <nav class="bg-danger d-flex align-items-center"> <!-- 내비게이션 영역 -->
+        <ul class="nav nav-fill w-100">
+            <!-- 카테고리별 채널 목록을 보여주는 내비게이션 링크 -->
+            <li class="nav-item"><a href="/lesson02/quiz08.jsp" class="nav-link text-white">전체</a></li>
+            <li class="nav-item"><a href="/lesson02/quiz08.jsp?category=지상파" class="nav-link text-white">지상파</a></li>
+            <li class="nav-item"><a href="/lesson02/quiz08.jsp?category=드라마" class="nav-link text-white">드라마</a></li>
+            <li class="nav-item"><a href="/lesson02/quiz08.jsp?category=예능" class="nav-link text-white">예능</a></li>
+            <li class="nav-item"><a href="/lesson02/quiz08.jsp?category=영화" class="nav-link text-white">영화</a></li>
+            <li class="nav-item"><a href="/lesson02/quiz08.jsp?category=스포츠" class="nav-link text-white">스포츠</a></li>
+        </ul>
+    </nav>
+
+    <section class="contents"> <!-- 콘텐츠 영역, 채널 정보를 보여줌 -->
+        <table class="table text-center"> <!-- 부트스트랩 테이블 스타일 적용 -->
+            <thead>
+                <tr>
+                    <th>채널</th>
+                    <th>채널명</th>
+                    <th>카테고리</th>
+                </tr>
+            </thead>
+            <tbody>
+            <%
+                String category = request.getParameter("category"); 
+                // URL에서 category 파라미터를 가져옴. 없으면 null
+                
+                // 채널 리스트를 반복하며 카테고리 조건에 맞는 채널만 출력
+                for (Map<String, String> item : list) {
+                    // 전체(category가 null)이거나, 선택된 카테고리와 일치하는 채널만 표시
+                    if (category == null || category.equals(item.get("category"))) {
+            %>
+                <tr>
+                    <td><%= item.get("ch") %></td> <!-- 채널 번호 -->
+                    <td><%= item.get("name") %></td> <!-- 채널 이름 -->
+                    <td><%= item.get("category") %></td> <!-- 채널 카테고리 -->
+                </tr>
+            <%
+                    }
+                }
+            %>
+            </tbody>
+        </table>
+    </section>
+	  <footer class="d-flex justify-content-center align-items-center"> <!-- 푸터 영역 -->
+		    <small>Copyright © SK Broadband IPTV 2024</small> <!-- 푸터 텍스트 -->
+	 </footer>
+		</div>
+	</body>
 </html>

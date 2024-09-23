@@ -40,24 +40,28 @@ list.add(map);
 			</tr>
 		</thead>
 		<tbody>
-		<%
-			// keyword 가져오기 
-			String keyword = request.getParameter("keyword");
-				
-			// starPointFilter 가져오기 	
-			String filter = request.getParameter("starPointFilter");
-			
-			boolean exclude = filter != null; // true:제외(체크됨) 
-			
-			// Map 순회
-			for(Map<String , Object> item : list) { // 향상된 for문 시작
-				if(keyword.equals(item.get("menu"))) { // if문 시작 
-					// skip 조건 : 체크가 되어 있고, 4.0 이하인 조건 => 출력 X
-					if (exclude && (double)item.get("point") <= 4.0) {
-						continue;
-					}
-		%>
+ <%
+        // 검색어(keyword) 가져오기: 사용자가 입력한 검색어를 받아옵니다.
+        String keyword = request.getParameter("keyword");
+            
+        // 별점 필터(starPointFilter) 가져오기: 별점 필터가 체크되어 있으면 필터링합니다.
+        String filter = request.getParameter("starPointFilter");
+        
+        // 필터링할지 여부를 판단하는 변수 exclude를 설정합니다. 
+        // starPointFilter가 체크된 경우에만 exclude가 true로 설정됩니다.
+        boolean exclude = filter != null; // true:제외(체크됨) 
+        
+        // List에 저장된 Map을 순회하면서, 각 Map에 대해 조건을 적용하고 출력합니다.
+        for(Map<String , Object> item : list) { // 향상된 for문 시작
+            // 키워드와 메뉴가 일치하는지 확인
+            if(keyword.equals(item.get("menu"))) { // if문 시작 
+                // 필터링 조건: exclude가 true(별점 필터가 체크된 경우)이고, 별점이 4.0 이하이면 continue로 건너뜁니다.
+                if (exclude && (double)item.get("point") <= 4.0) {
+                    continue; // 조건을 만족하면 해당 항목을 출력하지 않음
+                }
+    %>
 		<tr>
+			<!-- 메뉴, 이름, 별점 출력 -->
 			<td><%=item.get("menu")%></td>	
 			<td><%=item.get("name")%></td>	
 			<td><%=item.get("point")%></td>	
