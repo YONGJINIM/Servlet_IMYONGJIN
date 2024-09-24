@@ -13,7 +13,7 @@
 <body>
 	<div class="container">
 	<h1>즐겨찾기 추가</h1>
-	<form method="get" acction="/lesson03/quiz02.jsp">
+	<form method="post" action="/lesson03/Quiz02_1.jsp">
 	<div>
 		<small>사이트명</small><br>
 		<input type="text" name="name">
